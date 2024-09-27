@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .about-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .profile-picture {
+            flex: 0 0 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        .profile-picture img {
+            width: 100%;
+            height: auto;
+        }
+        .about-me p {
+            flex: 1;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .project {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project h3 {
+            margin: 0;
+        }
+        .project a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #282c34;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Willkommen zu meinem Portfolio</h1>
+</header>
+
+<div class="container">
+    <section class="about-me">
+        <div class="profile-picture">
+            <!-- Hier das Bild einfügen -->
+            <img src="profile.jpg" alt="Profilbild">
+        </div>
+        <div>
+            <h2>Über mich</h2>
+            <p>Hallo! Ich bin ein Informatikstudent an der Technischen Universität Darmstadt und arbeite leidenschaftlich an verschiedenen Projekten in den Bereichen Webentwicklung und Software Engineering.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Meine Projekte</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Projekt 1</h3>
+                <p>Beschreibung meines ersten Projekts.</p>
+                <a href="https://github.com/deinusername/projekt1" target="_blank">GitHub Repo</a>
+            </div>
+            <div class="project">
+                <h3>Projekt 2</h3>
+                <p>Beschreibung meines zweiten Projekts.</p>
+                <a href="https://github.com/deinusername/projekt2" target="_blank">GitHub Repo</a>
+            </div>
+            <div class="project">
+                <h3>Projekt 3</h3>
+                <p>Beschreibung meines dritten Projekts.</p>
+                <a href="https://github.com/deinusername/projekt3" target="_blank">GitHub Repo</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Mein Name - Alle Rechte vorbehalten</p>
+</footer>
+
+</body>
+</html>
