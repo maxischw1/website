@@ -12,101 +12,151 @@
             color: #333;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
+
         header {
             background-color: #282c34;
             color: white;
             padding: 10px 0;
             text-align: center;
         }
+
         h1 {
             margin: 0;
+            font-size: 2.5em;
         }
+
         .container {
-            padding: 20px;
             max-width: 1000px;
             margin: 0 auto;
         }
-        .about-me {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-        }
+
         .profile-picture {
-            flex: 0 0 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             overflow: hidden;
-            margin-right: 20px;
+            margin: 40px auto;
+            transition: opacity 0.6s ease;
         }
+
         .profile-picture img {
             width: 100%;
             height: auto;
         }
-        .about-me p {
-            flex: 1;
+
+        .about-me {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 1;
+            transition: opacity 0.6s ease;
         }
+
+        .about-me p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
         .projects {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
+            margin-top: 60px;
         }
+
         .project {
             background-color: white;
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
+
         .project h3 {
             margin: 0;
         }
+
         .project a {
             text-decoration: none;
             color: #007bff;
         }
+
         footer {
             text-align: center;
             padding: 20px;
             background-color: #282c34;
             color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
+
+        /* Initial state */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        /* Projects hidden by default */
+        .projects-container {
+            margin-top: 40px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        /* When scrolling past the profile, projects fade in */
+        .scrolled .projects-container {
+            opacity: 1;
+        }
+
+        .scrolled .profile-picture,
+        .scrolled .about-me {
+            opacity: 0;
+        }
+
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Willkommen zu meinem Portfolio</h1>
+    <h1>PORTFOLIO M. SCHWARZ</h1>
 </header>
 
-<div class="container">
-    <section class="about-me">
-        <div class="profile-picture">
-            <!-- Hier das Bild einfügen -->
-            <img src="profile.jpg" alt="Profilbild">
-        </div>
-        <div>
-            <h2>Über mich</h2>
-            <p>My name is Maximilian Schwarz</p>
-            <p>Welcome to my Portfolio Website showing of my latest Projects</p>
-        </div>
-    </section>
+<div class="profile-container" id="profile-container">
+    <div class="profile-picture" id="profile-picture">
+        <img src="profile.jpg" alt="Profilbild">
+    </div>
+    <div class="about-me" id="about-me">
+        <h2>Über mich</h2>
+        <p>Mein Name ist Maximilian Schwarz</p>
+        <p>Willkommen auf meiner Portfolio-Website, auf der ich meine neuesten Projekte präsentiere.</p>
+    </div>
+</div>
 
+<div class="container projects-container" id="projects-container">
     <section>
         <h2>Meine Projekte</h2>
         <div class="projects">
             <div class="project">
                 <h3>Projekt 1</h3>
-                <p>A Python GUI application that finds the 10 files on your computer that haven't been used for the longest time. </p>
+                <p>Eine Python-GUI-Anwendung, die die 10 Dateien auf deinem Computer findet, die am längsten nicht verwendet wurden.</p>
                 <a href="https://github.com/maxischw1/oldest_files_gui.py" target="_blank">GitHub Repo</a>
             </div>
             <div class="project">
                 <h3>Projekt 2</h3>
-                <p>This repository contains a simple HTTP server implementation in Python. It serves HTTP requests and can be stopped manually or programmatically.</p>
+                <p>Ein einfaches HTTP-Server-Implementierung in Python. Es dient HTTP-Anfragen und kann manuell oder programmgesteuert gestoppt werden.</p>
                 <a href="https://github.com/maxischw1/simple_http_server.py" target="_blank">GitHub Repo</a>
             </div>
             <div class="project">
                 <h3>Projekt 3</h3>
-                <p>This Python script converts images from one file format to another using the Pillow library. It allows you to easily convert images to formats like JPEG, PNG, BMP, etc.</p>
+                <p>Dieses Python-Skript konvertiert Bilder von einem Dateiformat in ein anderes mithilfe der Pillow-Bibliothek.</p>
                 <a href="https://github.com/maxischw1/PHYTON-IMAGE-COVERTER" target="_blank">GitHub Repo</a>
             </div>
         </div>
@@ -116,6 +166,20 @@
 <footer>
     <p>&copy; 2024 Maximilian Charles Morgan Schwarz - Alle Rechte vorbehalten</p>
 </footer>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const profileContainer = document.getElementById('profile-container');
+        const projectsContainer = document.getElementById('projects-container');
+        
+        // Wenn das Fenster nach unten gescrollt wird, die Klasse "scrolled" hinzufügen
+        if (window.scrollY > profileContainer.offsetHeight - 100) {
+            profileContainer.classList.add('scrolled');
+        } else {
+            profileContainer.classList.remove('scrolled');
+        }
+    });
+</script>
 
 </body>
 </html>
